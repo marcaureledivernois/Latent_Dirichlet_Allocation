@@ -67,6 +67,6 @@ The typical preprocessing steps before performing LDA are
 ## Credits
 
 * Siraj Raval
-* [moreene](https://github.com/morreene). I've merely created a wrapper to get people started. 
+* [moreene](https://github.com/morreene)
 * [Great Learning](https://www.mygreatlearning.com/blog/understanding-latent-dirichlet-allocation/)
 
