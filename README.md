@@ -52,14 +52,14 @@ for probability and picking only the words whose probabilities are greater than 
 
 Pseudo-code :
 
-        1. Randomly assign each word in each document to one of the K topics
+        1. Randomly assign each word w in each document to one of the K topics
         2. For each document d:
             a. Asumme that all topic assignments except for the current one are correct
             b. Calculate two proportions
                 i)  Proportion of words in document d that are currently assigned to topic t (i.e : p(topic t | document d))
                 ii) Proportion of assignments to topic t over all documents that come from this word w (i.e : p(word w | topic t))
-            c. Multiply those two proportions and assign w a new topic based on that probability. 
-        3. Eventullay we will reach a steady state where assignments make sense
+            c. Multiply those two proportions and assign to word w a new topic based on that probability. 
+        3. Eventually we will reach a steady state where assignments make sense
 
 ## Hyperparameters in LDA
 
