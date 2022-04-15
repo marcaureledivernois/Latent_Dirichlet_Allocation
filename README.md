@@ -25,8 +25,9 @@ and the distribution of words in topics are both Dirichlet distributions. **‘A
 Dirichlet is a type of distribution specified by a vector parameter containing variables corresponding
 to each topic. LDA formula : probability of a topic given a word = # of times topic in document * # of times word is in the topic
 
-P(z=t|w) &prop; (&alpha;<sub>t</sub> + n<sub>t|d</sub>) * (&beta; + n<sub>w|d</sub>) / &beta;V + n<sub>.|t</sub> 
+P(z=t|w) &prop; (&alpha;<sub>t</sub> + n<sub>t|d</sub>) * (&beta; + n<sub>w|d</sub>) / (&beta;V + n<sub>.|t</sub> )
 
+with V the number of words in vocabulary, &alpha; the document-topic density factor, &beta; the topic-word density factor
 ## Topic modelling vs topic classification
 
 At this point, it is important to note that topic modelling is not the same as topic classification. 
