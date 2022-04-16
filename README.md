@@ -28,6 +28,7 @@ to each topic. LDA formula : probability of a topic given a word = # of times to
 P(z=t|w) &prop; (&alpha;<sub>t</sub> + n<sub>t|d</sub>) * (&beta; + n<sub>w|d</sub>) / (&beta;V + n<sub>.|t</sub> )
 
 with V the number of words in vocabulary, &alpha; the document-topic density factor, &beta; the topic-word density factor
+
 ## Topic modelling vs topic classification
 
 At this point, it is important to note that topic modelling is not the same as topic classification. 
@@ -67,6 +68,11 @@ LDA has three hyper parameters;
 1. document-topic density factor ‘α’
 2. topic-word density factor ‘β’
 3. the number of topics ‘K’ to be considered. 
+
+alpha=0.1 and beta=0.0002 are generally good starting point.
+The lower alpha, the fewer topics per document.
+alpha should be low but nonzero so that words can group by document as well.
+The lower beta, more extreme each topic's word frequencies
 
 ## Data preprocessing for LDA
 

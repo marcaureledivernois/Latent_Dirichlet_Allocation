@@ -7,29 +7,20 @@ import stopwords
 #GLOBAL VARIABLES
 
 eng_dict = []
-#location of your English dictionary
-dict_file = open("/usr/share/dict/words",'r')
-for line in dict_file:
-    #I assume your dictionary's words are separated by whitespace,
-    #but it it's commas you can do split(',')
-    items = line.split()
-    for word in items:
-        eng_dict.append(word)
+with open('english_vocabulary.txt',"r", encoding="utf8") as f:
+    lines = f.readlines()
+
+for line in lines:
+    eng_dict.append(line.rstrip())
 eng_dict = set(eng_dict)
+
 
 #word_index serves as a two-way lookup table: given a word, return its index,
 #and vice-versa. Also has key "n_words" which gives number of words in
 #vocabulary.
 word_index = {"n_words":0}
-#The coefficients alpha and beta are derived from the multinomial distribution
-#assumed by the model. alpha=0.1 and beta=0.0002 are generally good.
-#The lower alpha, the fewer topics per document
-#alpha should be low but nonzero so that words can group by document as well.
 alpha = 0.1
-#The lower beta, more extreme each topic's word frequencies
 beta = 0.0002
-
-
 
 
 def is_word(phrase):
@@ -62,7 +53,6 @@ def read_docs():
     fnames = get_fnames()
     for fname in fnames:
         docs.append(read_doc(fname))
-
     return docs
 
 def read_doc(fname):
@@ -143,7 +133,7 @@ def get_topics(iters, w_counts, docs, n_topics):
             nk[topic] += 1
             n_words_total += 1
     for it in range(iters):
-        print "Iteration",it
+        print("Iteration",it)
         for i in range(len(docs)):
             for j in range(len(docs[i])):
                 ind = docs[i][j]
@@ -177,9 +167,9 @@ def display_topics(topics):
                     top[j+1:] = top[j:-1]
                     top[j] = [word_index[i],t[i]]
                     break
-        print "\n"+"==TOPIC==", " with number of words =", nk
+        print("\n"+"==TOPIC==", " with number of words =", nk)
         for rank in top:
-            print rank
+            print(rank)
 
 def main():
     docs = read_docs()
