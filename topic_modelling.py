@@ -483,4 +483,3 @@ topics_matrix.shape
 topic_words = topics_matrix[:,:,1]
 for i in topic_words:
     print([str(word) for word in i])
-    print()
